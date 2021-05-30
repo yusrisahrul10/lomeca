@@ -1,7 +1,5 @@
 import 'package:ancol_taking_order/app/bloc/membervoucherdetail/member_voucher_detail_event.dart';
 import 'package:ancol_taking_order/app/bloc/membervoucherdetail/member_voucher_detail_state.dart';
-import 'package:ancol_taking_order/app/bloc/redeem/redeem_coupon_event.dart';
-import 'package:ancol_taking_order/app/bloc/redeem/redeem_coupon_state.dart';
 import 'package:ancol_taking_order/app/repositories/api_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,7 +8,6 @@ class MemberVoucherDetailBloc extends Bloc<MemberVoucherDetailEvent, MemberVouch
   final ApiRepository repository;
 
   MemberVoucherDetailBloc({this.repository}) : super(MemberVoucherDetailInitial());
-
 
   @override
   Stream<MemberVoucherDetailState> mapEventToState(MemberVoucherDetailEvent event) async* {

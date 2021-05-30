@@ -39,29 +39,29 @@ class _TransactionPageState extends State<TransactionPage>
   AnimationController controller;
   Animation animation;
 
-  String getOrderNo;
-  String getTableNo;
-  String getTodo;
+  String orderNo;
+  String tableNo;
+  String todo;
   String branchId;
 
   _getOrderNo() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     setState(() {
-      getOrderNo = pref.getString('orderno');
+      orderNo = pref.getString('orderno');
     });
   }
 
   _getTodo() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     setState(() {
-      getTodo = pref.getString('todo');
+      todo = pref.getString('todo');
     });
   }
 
   _getTableNo() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     setState(() {
-      getTableNo = pref.getString('tableno');
+      tableNo = pref.getString('tableno');
     });
   }
 
@@ -97,11 +97,11 @@ class _TransactionPageState extends State<TransactionPage>
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    print('SHAREDPREF ORDERNO ' + getOrderNo);
+    print('SHAREDPREF ORDERNO ' + orderNo);
 
-    print('SHAREDPREF todo ' + getTodo);
+    print('SHAREDPREF todo ' + todo);
 
-    print('SHAREDPREF table no ' + getTableNo);
+    print('SHAREDPREF table no ' + tableNo);
 
     print('SHAREDPREF branchid ' + branchId);
 
@@ -110,7 +110,7 @@ class _TransactionPageState extends State<TransactionPage>
       onWillPop: () {
         Navigator.pop(context);
         context.bloc<MasterMenuBloc>().add(NavigatorActionPopMenu());
-        context.bloc<NewOrderBloc>().add(NavigatorActionLoginInitial());
+        context.bloc<NewOrderBloc>().add(NavigatorNewOrderInitial());
         return;
       },
       child: Scaffold(
@@ -163,17 +163,6 @@ class _TransactionPageState extends State<TransactionPage>
           ],
         ),
       ),
-    );
-  }
-
-  Widget buildButtonBox(String imagePath) {
-    return IconButton(
-      icon: Image.asset(
-        imagePath,
-        width: 50,
-        height: 50,
-      ),
-      onPressed: () {},
     );
   }
 
@@ -273,7 +262,7 @@ class _TransactionPageState extends State<TransactionPage>
               ],
             ),
             Text(
-              'you are on table ' + getTableNo,
+              'you are on table ' + tableNo,
               style: TextStyle(
                 fontSize: 12,
                 color: mainColorDark,
@@ -284,7 +273,7 @@ class _TransactionPageState extends State<TransactionPage>
               height: 10,
             ),
             Text(
-              'No Order ' + getOrderNo,
+              'No Order ' + orderNo,
               style: TextStyle(
                 fontSize: 12,
                 color: mainColorDark,
@@ -362,7 +351,7 @@ class _TransactionPageState extends State<TransactionPage>
               ],
             ),
             Text(
-              'you are on table ' + getTableNo,
+              'you are on table ' + tableNo,
               style: TextStyle(
                 fontSize: 12,
                 color: mainColorDark,
@@ -373,7 +362,7 @@ class _TransactionPageState extends State<TransactionPage>
               height: 10,
             ),
             Text(
-              'No Order ' + getOrderNo,
+              'No Order ' + orderNo,
               style: TextStyle(
                 fontSize: 12,
                 color: mainColorDark,

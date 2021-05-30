@@ -14,7 +14,6 @@ class LoginMemberButtonPressed extends LoginMemberEvent {
 
   @override
   List<Object> get props => [email, password];
-
 }
 
 class NavigateToHomePage extends LoginMemberEvent {
@@ -38,5 +37,4 @@ class NavigateToVerifyPage extends LoginMemberEvent {
 class NavigatorActionLogin extends LoginMemberEvent {
   @override
   List<Object> get props => [];
-
 }

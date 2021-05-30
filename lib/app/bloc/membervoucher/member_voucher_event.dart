@@ -11,5 +11,4 @@ class FetchMemberVoucher extends MemberVoucherEvent {
 
   @override
   List<Object> get props => [token];
-
 }

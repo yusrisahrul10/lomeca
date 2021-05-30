@@ -60,6 +60,7 @@ DetailOrder _$DetailOrderFromJson(Map<String, dynamic> json) {
     createdAt: json['createdAt'] as String,
     updatedAt: json['updatedAt'] as String,
     menuname: json['menuname'] as String,
+    cart_status: json['cart_status'] as int,
   );
 }
 
@@ -79,4 +80,5 @@ Map<String, dynamic> _$DetailOrderToJson(DetailOrder instance) =>
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
       'menuname': instance.menuname,
+      'cart_status': instance.cart_status,
     };

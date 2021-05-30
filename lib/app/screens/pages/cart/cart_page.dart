@@ -19,8 +19,6 @@ import 'dart:convert';
 
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'components/cart_item.dart';
-
 class CartPage extends StatefulWidget {
   final ResultUser user;
 
@@ -39,7 +37,6 @@ class _CartPageState extends State<CartPage> {
   String tableNo;
   String branchId;
 
-  // String isVoucherAdded;
 
   List<PostOrder> getData;
 
@@ -49,6 +46,7 @@ class _CartPageState extends State<CartPage> {
     tableNo = pref.getString('tableno');
     branchId = pref.getString('branch_id');
   }
+
 
   @override
   void initState() {
@@ -593,7 +591,6 @@ class _CartPageState extends State<CartPage> {
                                     tableNo: tableNo,
                                     branchId: branchId,
                                     detail: getData
-                                  // detail: json.encode(getData)
                                 ));
                           },
                           text: 'Lanjutkan',
@@ -605,62 +602,6 @@ class _CartPageState extends State<CartPage> {
                       ]),
                 );
               }),
-          // Container(
-          //   padding: EdgeInsets.only(left: 5),
-          //   width: double.infinity,
-          //   height: 40,
-          //   child: StreamBuilder(
-          //       stream: Database(openDb.executor).getTotal(),
-          //       builder: (context, AsyncSnapshot<double> snapshot) {
-          //         return ElevatedButton(
-          //           onPressed: () => Dialogs.bottomMaterialDialog(
-          //               msg:
-          //                   'Apakah Anda sudah yakin dengan pesanan Anda? Pesanan tidak dapat dibatalkan',
-          //               title: 'Place Order',
-          //               context: context,
-          //               actions: [
-          //                 IconsOutlineButton(
-          //                   onPressed: () {
-          //                     Navigator.pop(context);
-          //                   },
-          //                   text: 'Batal',
-          //                   iconData: Icons.cancel_outlined,
-          //                   textStyle: TextStyle(color: Colors.grey),
-          //                   iconColor: Colors.grey,
-          //                 ),
-          //                 IconsButton(
-          //                   onPressed: () {
-          //                     Navigator.pop(context);
-          //                     for (var i in getData) {
-          //                       print("GET DATA " + i.ref_menuid);
-          //                     }
-          //                     context.bloc<PostOrderBloc>().add(
-          //                         PostOrderPressed(
-          //                             orderNo: orderNo,
-          //                             tableNo: tableNo,
-          //                             branchId: branchId,
-          //                             detail: getData
-          //                             // detail: json.encode(getData)
-          //                             ));
-          //                   },
-          //                   text: 'Lanjutkan',
-          //                   iconData: Icons.delete,
-          //                   color: Colors.red,
-          //                   textStyle: TextStyle(color: Colors.white),
-          //                   iconColor: Colors.white,
-          //                 ),
-          //               ]),
-          //           child: Text(
-          //             "Place Order",
-          //             style: TextStyle(
-          //                 fontSize: 20,
-          //                 color: Colors.white,
-          //                 fontWeight: FontWeight.w600),
-          //             textAlign: TextAlign.left,
-          //           ),
-          //         );
-          //       }),
-          // ),
           BlocBuilder<PostOrderBloc, PostOrderState>(
             builder: (context, state) {
               if (state is PostOrderLoading) {
@@ -675,30 +616,10 @@ class _CartPageState extends State<CartPage> {
                   context
                       .bloc<PostOrderBloc>()
                       .add(NavigateToFinishPage(order: getOrder
-                    //   // detail: json.encode(getData)
                   ));
                   Database(openDb.executor).deleteAllCart();
-
-                  // Dialogs.materialDialog(
-                  //     color: Colors.white,
-                  //     msg: 'Error',
-                  //     title: getOrder.message,
-                  //     context: context,
-                  //     actions: [
-                  //       IconsButton(
-                  //         onPressed: () {
-                  //           Navigator.pop(context);
-                  //         },
-                  //         text: 'Selesai',
-                  //         iconData: Icons.done,
-                  //         color: kPrimaryColor,
-                  //         textStyle: TextStyle(color: Colors.white),
-                  //         iconColor: Colors.white,
-                  //       ),
-                  //     ]);
                 } else {
                   return Center(child: Text(getOrder.message));
-
                 }
 
               } else if (state is PostOrderFailure) {
@@ -780,45 +701,6 @@ class TotalCalculationWidget extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class PromoCodeWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
-        padding: EdgeInsets.only(left: 3, right: 3),
-        decoration: BoxDecoration(boxShadow: [
-          BoxShadow(
-            color: Color(0xFFfae3e2).withOpacity(0.1),
-            spreadRadius: 1,
-            blurRadius: 1,
-            offset: Offset(0, 1),
-          ),
-        ]),
-        child: TextFormField(
-          decoration: InputDecoration(
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFFe6e1e1), width: 1.0),
-              ),
-              enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Color(0xFFe6e1e1), width: 1.0),
-                  borderRadius: BorderRadius.circular(7)),
-              fillColor: Colors.white,
-              hintText: 'Add Your Promo Code',
-              filled: true,
-              suffixIcon: IconButton(
-                  icon: Icon(
-                    Icons.local_offer,
-                    color: Color(0xFFfd2c2c),
-                  ),
-                  onPressed: () {
-                    debugPrint('222');
-                  })),
         ),
       ),
     );

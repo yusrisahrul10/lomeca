@@ -1,5 +1,3 @@
-import 'package:ancol_taking_order/app/bloc/promo/promo_event.dart';
-import 'package:ancol_taking_order/app/bloc/promo/promo_state.dart';
 import 'package:ancol_taking_order/app/bloc/promodetail/promo_detail_event.dart';
 import 'package:ancol_taking_order/app/bloc/promodetail/promo_detail_state.dart';
 import 'package:ancol_taking_order/app/repositories/api_repository.dart';
@@ -9,7 +7,6 @@ class PromoDetailBloc extends Bloc<PromoDetailEvent, PromoDetailState> {
   final ApiRepository repository;
 
   PromoDetailBloc({this.repository}) : super(PromoDetailInitial());
-
 
   @override
   Stream<PromoDetailState> mapEventToState(PromoDetailEvent event) async* {

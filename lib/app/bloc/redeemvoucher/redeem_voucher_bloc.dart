@@ -1,6 +1,5 @@
 import 'package:ancol_taking_order/app/bloc/redeemvoucher/redeem_voucher_event.dart';
 import 'package:ancol_taking_order/app/bloc/redeemvoucher/redeem_voucher_state.dart';
-import 'package:ancol_taking_order/app/models/order.dart';
 import 'package:ancol_taking_order/app/repositories/api_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,7 +7,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class RedeemVoucherBloc extends Bloc<RedeemVoucherEvent, RedeemVoucherState> {
   final ApiRepository repository;
   final GlobalKey<NavigatorState> navigatorKey;
-
 
   RedeemVoucherBloc({this.repository, this.navigatorKey}) : super(RedeemVoucherInitial());
 

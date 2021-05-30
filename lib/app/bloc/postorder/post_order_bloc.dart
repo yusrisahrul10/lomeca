@@ -1,8 +1,5 @@
 import 'package:ancol_taking_order/app/bloc/postorder/post_order_event.dart';
 import 'package:ancol_taking_order/app/bloc/postorder/post_order_state.dart';
-import 'package:ancol_taking_order/app/database/database.dart';
-import 'package:ancol_taking_order/app/models/order.dart';
-import 'package:ancol_taking_order/app/models/post_order.dart';
 import 'package:ancol_taking_order/app/repositories/api_repository.dart';
 import 'package:ancol_taking_order/app/screens/pages/finish/finish_page.dart';
 import 'package:ancol_taking_order/app/screens/pages/transaction/transaction_page.dart';
@@ -14,7 +11,6 @@ class PostOrderBloc extends Bloc<PostOrderEvent, PostOrderState>{
   final GlobalKey<NavigatorState> navigatorKey;
 
   PostOrderBloc({this.repository, this.navigatorKey}) : super(PostOrderInitial());
-
 
   @override
   Stream<PostOrderState> mapEventToState(PostOrderEvent event) async* {
@@ -39,9 +35,7 @@ class PostOrderBloc extends Bloc<PostOrderEvent, PostOrderState>{
   Stream<PostOrderState> _mapPostOrderToState(String orderNo, String branchId, String tableNo, List detail) async* {
     try {
       yield PostOrderLoading();
-      //ResultOrder order = await repository.postOrder(orderNo, branchId, tableNo, detail);
       var data = await repository.postOrder(orderNo, branchId, tableNo, detail);
-
       yield PostOrderRequestSuccess(data: data);
     } catch (e) {
       yield PostOrderFailure(error: e.toString());

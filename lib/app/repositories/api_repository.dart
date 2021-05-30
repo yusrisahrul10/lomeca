@@ -1,13 +1,9 @@
 import 'dart:convert';
 
-import 'package:ancol_taking_order/app/models/login.dart';
 import 'package:ancol_taking_order/app/models/master_menu.dart';
 import 'package:ancol_taking_order/app/models/order.dart';
-import 'package:ancol_taking_order/app/models/post_order.dart';
 import 'package:ancol_taking_order/app/models/user.dart';
 import 'package:http/http.dart' as http;
-import 'package:dio/dio.dart';
-import 'dart:developer';
 
 
 class ApiRepository {
@@ -271,32 +267,6 @@ class ApiRepository {
     var data = json.decode(respStr);
     return data;
   }
-
-  Future<dynamic> postResentToken(String email, String token) async {
-
-    Map<String, String> requestBody = <String,String>{
-      'email':email,
-      'client_id': 'test',
-    };
-
-    Map<String, String> headers= <String,String>{
-      'Authorization':'Bearer $token'
-    };
-
-    var uri = Uri.parse("http://lomeca.datadigi.id/api/resendtoken");
-
-    var requeset = http.MultipartRequest('POST', uri)
-      ..fields.addAll(requestBody)
-      ..headers.addAll(headers);
-
-    var response = await requeset.send();
-
-    final respStr = await response.stream.bytesToString();
-
-    var data = json.decode(respStr);
-    return data;
-  }
-
 
   Future<dynamic> getListRedeemCoupon(String token) async {
     var uri = Uri.parse("http://lomeca.datadigi.id/api/redeemcoupon");

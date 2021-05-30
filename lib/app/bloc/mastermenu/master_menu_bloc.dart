@@ -9,7 +9,6 @@ class MasterMenuBloc extends Bloc<MasterMenuEvent, MasterMenuState> {
 
   MasterMenuBloc({this.repository}) : super(MasterMenuInitial());
 
-
   @override
   Stream<MasterMenuState> mapEventToState(MasterMenuEvent event) async* {
     if (event is FetchMasterMenu) {

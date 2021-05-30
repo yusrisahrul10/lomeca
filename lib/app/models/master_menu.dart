@@ -19,7 +19,6 @@ class ResultMasterMenu extends Equatable {
     this.data,
   });
 
-
   factory ResultMasterMenu.fromJson(Map<String, dynamic> json) => _$ResultMasterMenuFromJson(json);
 
   Map<String, dynamic> toJson() => _$ResultMasterMenuToJson(this);

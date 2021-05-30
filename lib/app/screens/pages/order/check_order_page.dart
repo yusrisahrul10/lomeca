@@ -24,7 +24,6 @@ class CheckOrderPage extends StatefulWidget {
 }
 
 class _CheckOrderPageState extends State<CheckOrderPage> {
-  final openDb = constructDb();
 
   List<ItemCart> getData;
 
@@ -32,6 +31,8 @@ class _CheckOrderPageState extends State<CheckOrderPage> {
   var tableNo;
   var total;
   String branchId;
+
+  var isFinished = true;
 
   _getTotalAmount(double totalAmount) async {
     setState(() {
@@ -134,6 +135,11 @@ class _CheckOrderPageState extends State<CheckOrderPage> {
 
         print('TOTAL AMOUNT FROM BLOC' + total.toString());
 
+        for (var i in order) {
+          if (i.cart_status == 0) {
+            isFinished = false;
+          }
+        }
 
         var mainMenu =
             order.where((element) => element.ref_menuid == "null").toList();
@@ -275,7 +281,7 @@ class _CheckOrderPageState extends State<CheckOrderPage> {
                                   Text(
                                     subtotal.toString(),
                                   ),
-                                  Text("DIPROSES"),
+                                  Text((mainMenu.cart_status == 0) ? "DIPROSES" : (mainMenu.cart_status == 1) ? "SELESAI" : "DIBATALKAN"),
                                 ]),
                               ],
                             ),
@@ -389,10 +395,35 @@ class _CheckOrderPageState extends State<CheckOrderPage> {
           DefaultButton(
             text: "Finish Order",
             press: () {
-              setState(() {
-                context.bloc<CloseOrderBloc>().add(CloseOrderPressed(
-                    branchId: branchId, tableNo: tableNo, orderNo: orderNo));
-              });
+              if (isFinished) {
+                setState(() {
+                  context.bloc<CloseOrderBloc>().add(CloseOrderPressed(
+                      branchId: branchId, tableNo: tableNo, orderNo: orderNo));
+                });
+              } else {
+                SchedulerBinding.instance.addPostFrameCallback((_) {
+                  setState(() async {
+
+                    Dialogs.materialDialog(
+                        color: Colors.white,
+                        msg: 'Error',
+                        title: "Status pesanan masih diproses",
+                        context: context,
+                        actions: [
+                          IconsButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            text: 'Kembali',
+                            iconData: Icons.done,
+                            color: kPrimaryColor,
+                            textStyle: TextStyle(color: Colors.white),
+                            iconColor: Colors.white,
+                          ),
+                        ]);
+                  });
+                });
+              }
             },
           ),
           // Container(
@@ -482,133 +513,3 @@ class _CheckOrderPageState extends State<CheckOrderPage> {
     );
   }
 }
-
-class TotalCalculationWidget extends StatefulWidget {
-  final double totalAmount;
-
-  const TotalCalculationWidget({Key key, this.totalAmount}) : super(key: key);
-
-  @override
-  _TotalCalculationWidgetState createState() => _TotalCalculationWidgetState();
-}
-
-class _TotalCalculationWidgetState extends State<TotalCalculationWidget> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      width: double.infinity,
-      //height: 150,
-      decoration: BoxDecoration(boxShadow: [
-        BoxShadow(
-          color: Color(0xFFfae3e2).withOpacity(0.1),
-          spreadRadius: 1,
-          blurRadius: 1,
-          offset: Offset(0, 1),
-        ),
-      ]),
-      child: Card(
-        color: Colors.white,
-        elevation: 0,
-        shape: RoundedRectangleBorder(
-          borderRadius: const BorderRadius.all(
-            Radius.circular(5.0),
-          ),
-        ),
-        child: Container(
-          alignment: Alignment.center,
-          padding: EdgeInsets.only(left: 25, right: 30, top: 10, bottom: 10),
-          child: Column(
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    "Total",
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: Color(0xFF3a3a3b),
-                        fontWeight: FontWeight.w600),
-                    textAlign: TextAlign.left,
-                  ),
-                  Text(
-                    widget.totalAmount.toString(),
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: Color(0xFF3a3a3b),
-                        fontWeight: FontWeight.w600),
-                    textAlign: TextAlign.left,
-                  )
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-    }
-}
-
-
-// class TotalCalculationWidget extends StatelessWidget {
-//   final openDb = constructDb();
-//
-//   TotalCalculationWidget({this.totalAmount});
-//
-//   final double totalAmount;
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       alignment: Alignment.center,
-//       width: double.infinity,
-//       //height: 150,
-//       decoration: BoxDecoration(boxShadow: [
-//         BoxShadow(
-//           color: Color(0xFFfae3e2).withOpacity(0.1),
-//           spreadRadius: 1,
-//           blurRadius: 1,
-//           offset: Offset(0, 1),
-//         ),
-//       ]),
-//       child: Card(
-//         color: Colors.white,
-//         elevation: 0,
-//         shape: RoundedRectangleBorder(
-//           borderRadius: const BorderRadius.all(
-//             Radius.circular(5.0),
-//           ),
-//         ),
-//         child: Container(
-//           alignment: Alignment.center,
-//           padding: EdgeInsets.only(left: 25, right: 30, top: 10, bottom: 10),
-//           child: Column(
-//             children: <Widget>[
-//               Row(
-//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                 children: <Widget>[
-//                   Text(
-//                     "Total",
-//                     style: TextStyle(
-//                         fontSize: 18,
-//                         color: Color(0xFF3a3a3b),
-//                         fontWeight: FontWeight.w600),
-//                     textAlign: TextAlign.left,
-//                   ),
-//                   Text(
-//                     totalAmount.toString(),
-//                     style: TextStyle(
-//                         fontSize: 18,
-//                         color: Color(0xFF3a3a3b),
-//                         fontWeight: FontWeight.w600),
-//                     textAlign: TextAlign.left,
-//                   )
-//                 ],
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }

@@ -22,5 +22,4 @@ class CloseOrderPressed extends CloseOrderEvent {
 class NavigatorActionCloseOrderPop extends CloseOrderEvent {
   @override
   List<Object> get props => [];
-
 }

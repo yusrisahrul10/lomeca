@@ -35,8 +35,6 @@ class _MenuDetailsState extends State<MenuDetails> {
   int detailSeqnoKeterangan;
   String branchId;
 
-
-
   TextEditingController keteranganController = TextEditingController();
 
   _setrefMenuid() async {
@@ -575,41 +573,6 @@ class _MenuDetailsState extends State<MenuDetails> {
       ),
     );
   }
-
-  // Widget buildAddKeterangan(Size size) {
-  //   return Align(
-  //     alignment: Alignment.bottomCenter,
-  //     child: Container(
-  //       width: 170,
-  //       height: 70,
-  //       decoration: BoxDecoration(
-  //           color: mainBlue,
-  //           borderRadius: BorderRadius.only(
-  //             topRight: Radius.circular(40),
-  //             topLeft: Radius.circular(40),
-  //             bottomLeft: Radius.circular(40),
-  //             bottomRight: Radius.circular(10),
-  //           )),
-  //       child: RepositoryProvider<Database>(
-  //         create: (context) => constructDb(),
-  //         child: TextButton(
-  //           onPressed: () {
-  //             setState(() {
-  //
-  //             });
-  //           },
-  //           child: Text(
-  //             'Tambahkan keterangan',
-  //             style: TextStyle(
-  //                 fontSize: 14,
-  //                 fontWeight: FontWeight.bold,
-  //                 color: Colors.white),
-  //           ),
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  // }
 
   Widget buildAddtoCart(Size size, double qty) {
     return Align(

@@ -18,7 +18,6 @@ class RegisterButtonPressed extends RegisterEvent {
 
   @override
   List<Object> get props => [name, email, password, passwordConfirmation,phonenumber,gender,address];
-
 }
 
 class NavigateToVerifyPage extends RegisterEvent {

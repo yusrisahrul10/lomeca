@@ -4,12 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'member_event.dart';
 import 'member_state.dart';
 
-
 class MemberBloc extends Bloc<MemberEvent, MemberState> {
   final ApiRepository repository;
 
   MemberBloc({this.repository}) : super(MemberInitial());
-
 
   @override
   Stream<MemberState> mapEventToState(MemberEvent event) async* {

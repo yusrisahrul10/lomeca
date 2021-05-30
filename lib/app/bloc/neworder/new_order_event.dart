@@ -14,7 +14,6 @@ class NewOrderButtonPressed extends NewOrderEvent {
 
   @override
   List<Object> get props => [phoneNumber, tableNo];
-
 }
 
 class NavigateToMainPage extends NewOrderEvent {
@@ -29,11 +28,9 @@ class NavigateToMainPage extends NewOrderEvent {
 class NavigatorActionPop extends NewOrderEvent {
   @override
   List<Object> get props => [];
-
 }
 
-class NavigatorActionLoginInitial extends NewOrderEvent {
+class NavigatorNewOrderInitial extends NewOrderEvent {
   @override
   List<Object> get props => [];
-
 }

@@ -15,13 +15,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/scheduler.dart';
 
 class NewOrderPage extends StatefulWidget {
-  // final String branchid;
-  // final String tableno;
-  //
-  // LoginPage({String branchid = "Test", String tableno = "Test"})
-  //     : this.branchid = branchid,
-  //       this.tableno = tableno;
-
   @override
   _NewOrderPageState createState() => _NewOrderPageState();
 }
@@ -30,25 +23,14 @@ class _NewOrderPageState extends State<NewOrderPage> {
   TextEditingController _customerPhoneController = TextEditingController();
   TextEditingController _customerTableNoController = TextEditingController();
 
-  // _setBranchId() async {
-  //   if (widget.branchid.isNotEmpty) {
-  //     SharedPreferences pref = await SharedPreferences.getInstance();
-  //     await pref.setString('branch_id', widget.branchid);
-  //   }
-  // }
-
   @override
   void initState() {
     super.initState();
-    // _setBranchId();
   }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
-    // print('BRANCH ID LOCALHOST ' + widget.branchid);
-    // print('TABLE NO LOCALHOST ' + widget.tableno);
 
     return Scaffold(
       body: Container(
@@ -61,53 +43,6 @@ class _NewOrderPageState extends State<NewOrderPage> {
             buildBody(
                 size, _customerPhoneController, _customerTableNoController),
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget buildMenuBar(Size size) {
-    return ClipPath(
-      clipper: MenuClip(),
-      child: Container(
-        height: size.height,
-        width: 55,
-        color: mainColor,
-        child: Column(
-          children: <Widget>[
-            SizedBox(
-              height: 80,
-            ),
-            Image.asset(
-              'images/menu.png',
-              width: 50,
-              height: 50,
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            SingleChildScrollView(
-              child: Column(
-                children: [
-                  buildRotatedBox('Login', 0),
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget buildRotatedBox(String text, int index) {
-    return RotatedBox(
-      quarterTurns: -1,
-      child: Container(
-        width: 100,
-        child: Text(
-          text,
-          textAlign: TextAlign.center,
-          style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
     );
@@ -244,22 +179,6 @@ class _InputFormState extends State<InputForm> {
                     });
                   },
                 ),
-                // Container(
-                //   width: double.infinity,
-                //   height: 40,
-                //   child: ElevatedButton(
-                //     onPressed: () {
-                //       setState(() {
-                //         context.bloc<NewOrderBloc>().add(NewOrderButtonPressed(
-                //           branchId: "FB01",
-                //             phoneNumber: widget.customerPhoneController.text,
-                //             tableNo: widget.customerTableNoController.text));
-                //         Database(openDb.executor).deleteAllCart();
-                //       });
-                //     },
-                //     child: Text('Start Order...'),
-                //   ),
-                // ),
                 SizedBox(
                   height: 10,
                 ),
@@ -268,13 +187,6 @@ class _InputFormState extends State<InputForm> {
                     if (state is NewOrderLoading) {
                       return Center(child: const CircularProgressIndicator());
                     } else if (state is NewOrderRequestSuccess) {
-                      // if (state.user.data.tableno == "Test") {
-                      //   return Center(
-                      //       child: Text(
-                      //           "No meja tidak ditemukan. Mohon pindai ulang QR Code"));
-                      // } else {
-                      //
-                      // }
                       if (state.user.status == "true") {
                         SchedulerBinding.instance.addPostFrameCallback((_) {
                           setState(() async {
@@ -303,18 +215,6 @@ class _InputFormState extends State<InputForm> {
                     return Center(child: Text(""));
                   },
                 ),
-                // Container(
-                //   width: double.infinity,
-                //   height: 40,
-                //   child: ElevatedButton(
-                //     onPressed: () {
-                //       final db = Database(openDb.executor);
-                //       Navigator.of(context).push(MaterialPageRoute(
-                //           builder: (context) => MoorDbViewer(db)));
-                //     },
-                //     child: Text('check moor'),
-                //   ),
-                // ),
               ],
             ),
           ),

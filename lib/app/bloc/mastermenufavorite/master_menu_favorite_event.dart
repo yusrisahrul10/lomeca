@@ -11,5 +11,4 @@ class FetchMasterMenuFavorite extends MasterMenuFavoriteEvent {
 
   @override
   List<Object> get props => [branchId];
-
 }

@@ -28,5 +28,4 @@ class CloseOrderFailure extends CloseOrderState {
 
   @override
   List<Object> get props => [error];
-
 }

@@ -29,5 +29,4 @@ class PostOrderFailure extends PostOrderState {
 
   @override
   List<Object> get props => [error];
-
 }

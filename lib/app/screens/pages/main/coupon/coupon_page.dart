@@ -9,7 +9,6 @@ import 'package:ancol_taking_order/app/models/voucher.dart';
 import 'package:ancol_taking_order/app/screens/pages/redeemdetail/redeem_detail_page.dart';
 import 'package:ancol_taking_order/app/screens/pages/voucherdetail/voucher_detail_page.dart';
 import 'package:ancol_taking_order/app/utils/colors.dart';
-import 'package:ancol_taking_order/app/utils/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';

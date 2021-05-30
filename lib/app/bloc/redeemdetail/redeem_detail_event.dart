@@ -12,5 +12,4 @@ class FetchDetailRedeem extends RedeemDetailEvent {
 
   @override
   List<Object> get props => [token, idRedeem];
-
 }

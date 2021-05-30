@@ -14,7 +14,6 @@ class VerifyTokenButtonPressed extends VerifyTokenEvent {
 
   @override
   List<Object> get props => [verifyMember, token];
-
 }
 
 class NavigateToLoginPage extends VerifyTokenEvent {

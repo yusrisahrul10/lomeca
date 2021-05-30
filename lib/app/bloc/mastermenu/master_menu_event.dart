@@ -11,11 +11,9 @@ class FetchMasterMenu extends MasterMenuEvent {
 
   @override
   List<Object> get props => [branchId];
-
 }
 
 class NavigatorActionPopMenu extends MasterMenuEvent {
   @override
   List<Object> get props => [];
-
 }

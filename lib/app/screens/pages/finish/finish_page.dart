@@ -60,26 +60,6 @@ class _FinishPageState extends State<FinishPage> {
                                 ),
                               ),
                             ),
-                            // Center(
-                            //   child: Text(
-                            //     'Status: ' + widget.order.status,
-                            //     style: TextStyle(
-                            //       color: mainBlue,
-                            //       fontSize: 18,
-                            //       fontWeight: FontWeight.normal,
-                            //     ),
-                            //   ),
-                            // ),
-                            // Center(
-                            //   child: Text(
-                            //     'message: ' + widget.order.message,
-                            //     style: TextStyle(
-                            //       color: mainBlue,
-                            //       fontSize: 18,
-                            //       fontWeight: FontWeight.normal,
-                            //     ),
-                            //   ),
-                            // ),
                             const Padding(
                               padding: EdgeInsets.all(25),
                             ),
@@ -100,28 +80,6 @@ class _FinishPageState extends State<FinishPage> {
                                 });
                               },
                             ),
-                            // Container(
-                            //   width: 300,
-                            //   height: 40,
-                            //   child: ElevatedButton(
-                            //     onPressed: () {
-                            //
-                            //       context
-                            //           .bloc<PostOrderBloc>()
-                            //           .add(NavigatorActionPop(user: widget.user));
-                            //
-                            //       // BlocBuilder<LoginBloc, LoginState>(
-                            //       //     builder: (context, state) {
-                            //       //       if (state is LoginRequestSuccess) {
-                            //       //
-                            //       //       }
-                            //       //       return Center(child: Text(""));
-                            //       //     }
-                            //       // );
-                            //     },
-                            //     child: Text('Done'),
-                            //   ),
-                            // ),
                           ],
                         ),
                       ),

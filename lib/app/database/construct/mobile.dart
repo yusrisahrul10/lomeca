@@ -21,9 +21,5 @@ Database constructDb({bool logStatements = false}) {
     final file = File('db.sqlite');
     return Database(VmDatabase(file, logStatements: logStatements));
   }
-  // if (Platform.isWindows) {
-  //   final file = File('db.sqlite');
-  //   return Database(VMDatabase(file, logStatements: logStatements));
-  // }
   return Database(VmDatabase.memory(logStatements: logStatements));
 }

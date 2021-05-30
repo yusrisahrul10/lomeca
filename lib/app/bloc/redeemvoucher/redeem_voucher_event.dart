@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
 
 abstract class RedeemVoucherEvent extends Equatable {
   const RedeemVoucherEvent();
@@ -22,5 +21,4 @@ class RedeemVoucherPressed extends RedeemVoucherEvent {
 class NavigatorActionRedeemPop extends RedeemVoucherEvent {
   @override
   List<Object> get props => [];
-
 }

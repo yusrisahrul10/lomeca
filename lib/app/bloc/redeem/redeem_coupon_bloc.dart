@@ -8,15 +8,14 @@ class RedeemCouponBloc extends Bloc<RedeemCouponEvent, RedeemCouponState> {
 
   RedeemCouponBloc({this.repository}) : super(RedeemCouponInitial());
 
-
   @override
   Stream<RedeemCouponState> mapEventToState(RedeemCouponEvent event) async* {
     if (event is FetchRedeemCoupon) {
-      yield* _mapLoadMasterMenuToState(event.token);
+      yield* _mapLoadRedeemCouponToState(event.token);
     }
   }
 
-  Stream<RedeemCouponState> _mapLoadMasterMenuToState(String token) async* {
+  Stream<RedeemCouponState> _mapLoadRedeemCouponToState(String token) async* {
     try {
       yield RedeemCouponLoading();
       var data = await repository.getListRedeemCoupon(token);

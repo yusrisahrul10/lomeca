@@ -1,7 +1,5 @@
 import 'package:ancol_taking_order/app/bloc/loginmember/login_member_bloc.dart';
 import 'package:ancol_taking_order/app/bloc/loginmember/login_member_event.dart';
-import 'package:ancol_taking_order/app/bloc/register/register_bloc.dart';
-import 'package:ancol_taking_order/app/bloc/register/register_event.dart';
 import 'package:ancol_taking_order/app/bloc/verify/verify_token_bloc.dart';
 import 'package:ancol_taking_order/app/bloc/verify/verify_token_event.dart';
 import 'package:ancol_taking_order/app/bloc/verify/verify_token_state.dart';

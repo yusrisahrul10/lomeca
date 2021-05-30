@@ -17,7 +17,6 @@ class _VoucherPageState extends State<VoucherPage> {
 
   String token = "";
 
-
   getToken() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     setState(() {
@@ -38,8 +37,6 @@ class _VoucherPageState extends State<VoucherPage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
-
 
     return Scaffold(
       appBar: AppBar(

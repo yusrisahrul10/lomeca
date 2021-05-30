@@ -12,7 +12,6 @@ class LogoutButtonPressed extends LogoutEvent {
 
   @override
   List<Object> get props => [token];
-
 }
 
 class NavigateToLoginPage extends LogoutEvent {

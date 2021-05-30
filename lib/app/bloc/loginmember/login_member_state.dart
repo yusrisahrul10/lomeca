@@ -1,4 +1,3 @@
-import 'package:ancol_taking_order/app/models/login.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/widgets.dart';
 

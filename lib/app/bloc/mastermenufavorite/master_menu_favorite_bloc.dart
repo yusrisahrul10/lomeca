@@ -9,7 +9,6 @@ class MasterMenuFavoriteBloc extends Bloc<MasterMenuFavoriteEvent, MasterMenuFav
 
   MasterMenuFavoriteBloc({this.repository}) : super(MasterMenuFavoriteInitial());
 
-
   @override
   Stream<MasterMenuFavoriteState> mapEventToState(MasterMenuFavoriteEvent event) async* {
     if (event is FetchMasterMenuFavorite) {

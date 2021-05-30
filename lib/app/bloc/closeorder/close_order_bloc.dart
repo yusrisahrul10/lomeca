@@ -9,7 +9,6 @@ class CloseOrderBloc extends Bloc<CloseOrderEvent, CloseOrderState> {
   final ApiRepository repository;
   final GlobalKey<NavigatorState> navigatorKey;
 
-
   CloseOrderBloc({this.repository, this.navigatorKey}) : super(CloseOrderInitial());
 
   @override

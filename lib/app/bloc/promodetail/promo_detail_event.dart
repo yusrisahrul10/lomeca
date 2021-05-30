@@ -12,5 +12,4 @@ class FetchPromoDetail extends PromoDetailEvent {
 
   @override
   List<Object> get props => [token];
-
 }

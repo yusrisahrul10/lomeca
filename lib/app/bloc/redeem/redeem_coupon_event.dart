@@ -11,5 +11,4 @@ class FetchRedeemCoupon extends RedeemCouponEvent {
 
   @override
   List<Object> get props => [token];
-
 }

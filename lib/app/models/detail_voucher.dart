@@ -105,7 +105,6 @@ class DataVoucher extends Equatable{
     redeem_coupon,
   ];
 
-
 }
 
 @JsonSerializable()

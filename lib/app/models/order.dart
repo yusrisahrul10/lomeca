@@ -76,6 +76,7 @@ class DetailOrder extends Equatable {
     this.createdAt,
     this.updatedAt,
     this.menuname,
+    this.cart_status
   });
 
   final int id;
@@ -92,6 +93,7 @@ class DetailOrder extends Equatable {
   final String createdAt;
   final String updatedAt;
   final String menuname;
+  final int cart_status;
 
   factory DetailOrder.fromJson(Map<String, dynamic> json) => _$DetailOrderFromJson(json);
 
@@ -113,6 +115,7 @@ class DetailOrder extends Equatable {
     createdAt,
     updatedAt,
     menuname,
+    cart_status
   ];
 
 }

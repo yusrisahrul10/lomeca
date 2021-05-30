@@ -284,9 +284,9 @@ class _HomePageState extends State<HomePage> {
                           //   },
                           // ),
                         )));
-              } else if (state is MemberLoading) {
+              } else if (state is PromoLoading) {
                 return Center(child: const CircularProgressIndicator());
-              } else if (state is MemberError) {
+              } else if (state is PromoError) {
                 // return Image.asset(circularProgressIndicator, scale: 5);
                 return Center(child: const CircularProgressIndicator());
               }

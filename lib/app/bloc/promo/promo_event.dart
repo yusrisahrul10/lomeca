@@ -11,11 +11,9 @@ class FetchPromo extends PromoEvent {
 
   @override
   List<Object> get props => [token];
-
 }
 
 class NavigatorActionPromoPop extends PromoEvent {
   @override
   List<Object> get props => [];
-
 }

@@ -8,7 +8,6 @@ class PromoBloc extends Bloc<PromoEvent, PromoState> {
 
   PromoBloc({this.repository}) : super(PromoInitial());
 
-
   @override
   Stream<PromoState> mapEventToState(PromoEvent event) async* {
     if (event is FetchPromo) {

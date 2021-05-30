@@ -169,37 +169,4 @@ class Database extends _$Database {
 
   Future deleteAllCart() => delete(cart).go();
 
-  // Future insertTransaction(Order order) => into(transactionOrder).insert(order);
-  //
-  // Stream<List<Order>> watchAllTransaction() => select(transactionOrder).watch();
-
-
-
-  // Future<void> insertDetailTransaction(
-  //     List<ItemCart> data, String strukno) async {
-  //   await batch((batch) => {
-  //         batch.insertAll(transactionOrderDetail, [
-  //           for (var dataCart in data)
-  //             dataCart.ref_menuid != null ?
-  //             TransactionOrderDetailCompanion.insert(
-  //                 strukno: strukno,
-  //                 menuid: dataCart.menuid,
-  //                 ref_menuid: Value(dataCart.ref_menuid.toDouble()),
-  //                 seqno: dataCart.seqno,
-  //                 detailseqno: dataCart.detailseqno,
-  //                 menuname: dataCart.name,
-  //                 qty: dataCart.qty.toInt(),
-  //                 hjual: dataCart.price,
-  //                 menupict: dataCart.image) : TransactionOrderDetailCompanion.insert(
-  //                 strukno: strukno,
-  //                 menuid: dataCart.menuid,
-  //                 seqno: dataCart.seqno,
-  //                 detailseqno: dataCart.detailseqno,
-  //                 menuname: dataCart.name,
-  //                 qty: dataCart.qty.toInt(),
-  //                 hjual: dataCart.price,
-  //                 menupict: dataCart.image)
-  //         ])
-  //       });
-  // }
 }

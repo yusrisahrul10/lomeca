@@ -11,11 +11,9 @@ class FetchMember extends MemberEvent {
 
   @override
   List<Object> get props => [token];
-
 }
 
 class NavigatorActionMemberPop extends MemberEvent {
   @override
   List<Object> get props => [];
-
 }
